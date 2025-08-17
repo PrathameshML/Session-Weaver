@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chrome Session Weaver</title>
+    <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+    <header class="header">
+        <h1>Session Weaver</h1>
+        <button id="reset-button" title="Start a fresh session">Clear Session</button>
+    </header>
+
+    <main class="main-content">
+        <details class="journey-section" open>
+            <summary>Active Journeys</summary>
+            <div class="details-content">
+                <div id="active-container">
+                    <p class="placeholder">No active journeys. Your map will grow here as you browse!</p>
+                </div>
+            </div>
+        </details>
+
+        <details class="journey-section">
+            <summary>Recently Closed</summary>
+            <div class="details-content">
+                <div id="closed-container">
+                    <p class="placeholder">Closed journeys from this session will appear here.</p>
+                </div>
+            </div>
+        </details>
+    </main>
+
+    <script src="popup.js"></script>
+</body>
+</html>

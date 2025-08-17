@@ -1,0 +1,192 @@
+/* popup.css - New Animated & Modern Dark UI */
+:root {
+    --bg-dark: #1e2124;
+    --bg-light: #282b30;
+    --border-color: #36393f;
+    --text-primary: #dcddde;
+    --text-secondary: #b9bbbe;
+    --accent-color: #00a8ff;
+    --active-bg: rgba(0, 168, 255, 0.1);
+    --shadow-color: rgba(0, 0, 0, 0.2);
+    --animation-duration: 0.3s;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideDown {
+    from { max-height: 0; opacity: 0; }
+    to   { max-height: 500px; opacity: 1; }
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    width: 380px;
+    background-color: var(--bg-dark);
+    color: var(--text-primary);
+    margin: 0;
+    animation: fadeIn 0.4s ease-out;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 16px;
+    background-color: var(--bg-light);
+    box-shadow: 0 2px 5px var(--shadow-color);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+h1 {
+    font-size: 16px;
+    margin: 0;
+    font-weight: 600;
+    color: #ffffff;
+}
+
+#reset-button {
+    background-color: var(--border-color);
+    border: none;
+    border-radius: 5px;
+    color: var(--text-primary);
+    cursor: pointer;
+    padding: 6px 12px;
+    font-size: 12px;
+    font-weight: 500;
+    transition: background-color var(--animation-duration) ease, transform 0.1s ease;
+}
+
+#reset-button:hover {
+    background-color: #40444b;
+}
+#reset-button:active {
+    transform: scale(0.95);
+}
+
+.main-content {
+    padding: 8px;
+}
+
+.journey-section summary {
+    font-weight: 600;
+    padding: 10px 12px;
+    cursor: pointer;
+    list-style: none;
+    position: relative;
+    transition: background-color var(--animation-duration) ease;
+    border-radius: 5px;
+    margin: 8px 0;
+}
+.journey-section summary::-webkit-details-marker { display: none; }
+.journey-section summary:hover { background-color: var(--bg-light); }
+
+.journey-section summary::before {
+    content: '›';
+    position: absolute;
+    left: 0px;
+    top: 5px;
+    font-size: 20px;
+    color: var(--text-secondary);
+    transform: rotate(0deg);
+    transition: transform var(--animation-duration) ease;
+}
+
+.journey-section[open] > summary::before {
+    transform: rotate(90deg);
+}
+
+.details-content {
+    overflow: hidden;
+    transition: max-height var(--animation-duration) ease-in-out, opacity var(--animation-duration) ease;
+}
+
+.journey-section:not([open]) > .details-content {
+    max-height: 0;
+}
+.journey-section[open] > .details-content {
+    animation: slideDown var(--animation-duration) ease-in-out;
+}
+
+.placeholder {
+    color: var(--text-secondary);
+    padding: 16px;
+    text-align: center;
+    font-size: 13px;
+    font-style: italic;
+}
+
+.tree ul {
+    list-style: none;
+    padding-left: 20px;
+    position: relative;
+}
+.tree ul::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 1px;
+    background-color: var(--border-color);
+}
+
+.tree-node {
+    position: relative;
+    opacity: 0;
+    animation: fadeIn 0.5s ease-out forwards;
+}
+.tree-node::before {
+    content: '';
+    position: absolute;
+    top: 17px;
+    left: -20px;
+    width: 15px;
+    height: 1px;
+    background-color: var(--border-color);
+}
+
+.tree a {
+    text-decoration: none;
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    padding: 6px 8px;
+    border-radius: 5px;
+    transition: background-color var(--animation-duration) ease;
+}
+.tree a:hover {
+    background-color: var(--bg-light);
+}
+
+.tree a .node-title {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 14px;
+    transition: color var(--animation-duration) ease;
+}
+.tree a:hover .node-title {
+    color: var(--accent-color);
+}
+
+.tree img {
+    width: 16px;
+    height: 16px;
+    margin-right: 10px;
+    flex-shrink: 0;
+}
+
+.tree .active-node {
+    background-color: var(--active-bg);
+    border-left: 2px solid var(--accent-color);
+    padding-left: 6px;
+}
+.tree .active-node .node-title {
+    font-weight: 600;
+    color: var(--accent-color);
+}

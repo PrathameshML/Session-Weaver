@@ -1,0 +1,30 @@
+{
+  "manifest_version": 3,
+  "name": "Chrome Session Weaver",
+  "version": "1.1",
+  "description": "Visually maps your entire Chrome session, weaving together active and closed tab journeys.",
+  "permissions": [
+    "storage",
+    "tabs",
+    "webNavigation",
+    "favicon"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png"
+    }
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "host_permissions": [
+    "<all_urls>"
+  ]
+}
